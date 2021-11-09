@@ -1,0 +1,21 @@
+{% extends 'base3.html' %}
+
+{% block title %}
+Delete events
+{% endblock %}
+
+{% block content %}
+<br><br>
+<h1> Delete Event Page </h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type = "text" name = "ename" placeholder="Enter Event Name to delete" required>
+<br><br>
+
+<input type="submit" value="Delete">
+</form>
+{{ msg }}
+
+{% endblock %}

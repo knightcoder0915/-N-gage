@@ -1,0 +1,24 @@
+{% extends 'base3.html' %}
+
+{% block title %}
+Create Employee
+{% endblock %}
+
+{% block content %}
+<br><br>
+<h1> Create Employee </h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="email" name="em" placeholder="enter email" required>
+<br><br>
+<input type = "text" name = "fn" placeholder="Enter First Name" required>
+<br><br>
+<input type = "text" name = "ln" placeholder="Enter Last Name" required>
+<br><br>
+<input type="submit" value="Sign up">
+</form>
+{{ msg }}
+
+{% endblock %}

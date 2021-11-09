@@ -1,0 +1,43 @@
+{% extends 'base3.html' %}
+
+{% block title %}
+'N'gage:Hr Home
+{% endblock %}
+
+{% block content %}
+<br><br>
+
+<h2 style="color: blue;"> Welcome {{ user.username }} </h2>
+<h1> Current activated accounts  </h1>
+
+<table border=2 style="width:50%">
+	{% if data %}
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Delete</th>
+		</tr>
+	{% endif %}
+
+	{% for d in data %}
+    <!--Add admins and hr team here so that they aren't displayed-->
+	{% if d.username != "tanvi" and d.username != "hr101"  %}
+	<tr align = center >
+		<td> {{ d.username }} </td>
+		<td> {{ d.email }} </td>
+		<td> <a href= "{% url 'delete' id=d.username %}"
+			onclick="return confirm('are you sure')"> Delete </a></td>
+		
+	</tr>
+	{% endif %}
+	{% empty %}
+		<tr>
+			<td> No data found </td>
+		</tr>
+
+		
+	{% endfor %}
+	</table>
+
+{% endblock %}
+

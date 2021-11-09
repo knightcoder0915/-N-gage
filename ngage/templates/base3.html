@@ -1,0 +1,81 @@
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    
+<style>
+    
+body {margin:0;}
+
+ul {
+  font-size: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+  
+}
+
+.active {
+  background-color: black;
+}
+*{
+  font-size: 30px;
+}
+</style>
+
+</head>
+<body>
+
+    <ul>
+        <li><a class="active" href="#home">"N"gage<br>A Nomura Fitness Community</a></li> 
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'hrhome' %}">Home<br><br></a></li>
+      <li><a href="{% url 'ucreate' %}">Create Employee<br><br></a></li>
+      <li><a href="{% url 'cevent' %}">Create Event<br><br></a></li>
+      <li><a href="{% url 'devent' %}">Delete Event<br><br></a></li>
+      
+			<li style="float:right"><a href="{% url 'ulogout' %}">Logout<br><br></a></li>
+      
+	  {% else %}
+			
+			<li><a href = "{% url 'ulogin' %}"> HR Login<br><br> </a></a></li>
+            <li><a href="{% url 'home' %}">Main<br><br></a></li>
+			
+	  {% endif %}
+
+      
+    </ul>
+
+    
+    <div style="padding:20px;margin-top:30px;background-color: darkgrey;height:1500px;">
+      {% block content %}
+        
+	    {% endblock %}
+    </div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,243 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Ngage:Employee Dashboard{% endblock %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+	<script src="p5.js"></script>
+    <script src="ml5.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+
+{% block content %}
+<br><br>
+<h2 style="color: blue;">Welcome {{ user.username }}</h2>
+
+<h2>Workouts</h2>
+<style type="text/css">
+
+
+    *{
+     margin: 0px;
+     padding: 0px;
+    }
+    body{
+     font-family: arial;
+    }
+    .main{
+    
+     margin: 2%;
+    }
+    
+    .card{
+        background-color: white;
+         width: 20%;
+         display: inline-block;
+         box-shadow: 2px 2px 20px black;
+         border-radius: 5px; 
+         margin: 2%;
+        }
+    
+    .image img{
+      width: 100%;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      
+    
+     
+     }
+    
+    .title{
+     
+      text-align: center;
+      padding: 10px;
+      
+     }
+    
+    h1{
+      font-size: 32px;
+     }
+    
+    .des{
+      padding: 5px;
+      text-align: center;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      
+    }
+    p{
+        font-size: 20px;
+    }
+    button{
+      margin-top: 40px;
+      margin-bottom: 10px;
+      background-color: rgba(4, 0, 253, 0.507);
+      border: 1px solid black;
+      border-radius: 5px;
+      padding:10px;
+    }
+    button:hover{
+      background-color: black;
+      color: white;
+      transition: .5s;
+      cursor: pointer;
+    }
+    
+    </style>
+    <body>
+    
+    <div class="main">
+    
+     <!--cards -->
+     
+    <div class="card">
+    
+    <div class="image">
+       <img src="{% static 'images/Workout.jpg' %}">
+    </div>
+    <div class="title">
+     <h1>
+    HIIT</h1>
+    </div>
+    <div class="des">
+     <p>Description</p>
+    <a href="{% url 'hiit' %}"><button type="submit" >Choose</button></a>
+    </div>
+    </div>
+    
+    <!--cards -->
+    
+    
+    <div class="card">
+    
+    <div class="image">
+       <img src="{% static 'images/Yoga.jpg' %}">
+    </div>
+    <div class="title">
+     <h1>
+    Yoga</h1>
+    </div>
+    <div class="des">
+     <p>Description</p>
+     <a href="{% url 'yoga' %}"><button type="submit">Choose</button></a>
+    </div>
+    </div>
+    <!--cards -->
+    
+    
+    <div class="card">
+    
+    <div class="image">
+       <img src="{% static 'images/Cardio.jpg' %}">
+    </div>
+    <div class="title">
+     <h1>
+    Cardio</h1>
+    </div>
+    <div class="des">
+     <p>Description</p>
+    <button>Choose</button>
+    </div>
+    </div>
+    <!--cards -->
+    
+    
+    <div class="card">
+    
+    <div class="image">
+       <img src="{% static 'images/Cardio.jpg' %}">
+    </div>
+    <div class="title">
+     <h1>
+    Abs</h1>
+    </div>
+    <div class="des">
+     <p>Description</p>
+    <button>Choose</button>
+    </div>
+    </div>
+    <!--cards -->
+    <div class="card">
+    
+        <div class="image">
+           <img src="{% static 'images/Workout.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        HIIT</h1>
+        </div>
+        <div class="des">
+         <p>Description</p>
+        <button>Choose</button>
+        </div>
+        </div>
+        <!--cards -->
+        
+        
+        <div class="card">
+        
+        <div class="image">
+           <img src="{% static 'images/Yoga.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        Yoga</h1>
+        </div>
+        <div class="des">
+         <p>Description</p>
+        <button>Choose</button>
+        </div>
+        </div>
+        <!--cards -->
+        
+        
+        <div class="card">
+        
+        <div class="image">
+           <img src="{% static 'images/Cardio.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        Cardio</h1>
+        </div>
+        <div class="des">
+         <p>Description</p>
+        <button>Choose</button>
+        </div>
+        </div>
+        <!--cards -->
+        
+        
+        <div class="card">
+        
+        <div class="image">
+           <img src="{% static 'images/Cardio.jpg' %}">
+        </div>
+        <div class="title">
+         <h1>
+        Abs</h1>
+        </div>
+        <div class="des">
+         <p>Description</p>
+        <button>Choose</button>
+        </div>
+        </div>
+        <!--cards -->
+    
+        
+        <br>
+        <h1>Recipes</h1>
+        <br>
+        <center>
+        <form action="">
+         <input type="text" placeholder='Search for Recipe'>
+        <br><br>
+           <input type="submit" name="btn" value="Search">
+        </form>
+        <section id='showRecipe' class='row pt-5   '>
+         </section>
+         <script src="{% static 'script/script.js' %}"></script>
+
+
+     
+    
+{% endblock %}
+

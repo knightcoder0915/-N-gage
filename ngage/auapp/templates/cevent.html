@@ -1,0 +1,27 @@
+{% extends 'base3.html' %}
+
+{% block title %}
+Create Event Page
+{% endblock %}
+
+{% block content %}
+<br><br>
+<h1> Create Event Page </h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type = "text" name = "ename" placeholder="Enter Event Name" required>
+<br><br>
+<input type = "text" name = "eurl" placeholder="Enter URL" >
+<br><br>
+<textarea name="edesc" rows="4" cols="30"  placeholder = "Description of Event" required>
+</textarea>
+<br><br>
+<input type="date"  name="edate">
+<br><br>
+<input type="Submit" value="Create Event">
+</form>
+{{ msg }}
+
+{% endblock %}

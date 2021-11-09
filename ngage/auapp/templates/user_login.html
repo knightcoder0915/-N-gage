@@ -1,0 +1,26 @@
+{% extends 'base2.html' %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+</style>
+<br><br>
+<div class="container" >
+<h1>Login</h1>
+<form method ="POST">
+{% csrf_token %}
+<input type="email" name="un" placeholder="enter email" required>
+<br><br>
+<input type="password" name="pw" placeholder="enter password" required>
+<br><br>
+<input type="submit" value="Login">
+</form>
+{{ msg }}
+</div>
+{% endblock %}

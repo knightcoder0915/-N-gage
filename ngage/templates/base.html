@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    
+<style>
+    *{font-size: 40px;}
+body {margin:0;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+  
+}
+
+.active {
+  background-color: black;
+}
+</style>
+
+</head>
+
+<body>
+
+    <ul>
+      <li><a class="active" href="{% url 'home' %}" style="font-size: 20px;">"N"gage<br>A Nomura Fitness Community</a></li>
+      <li><a href={% url 'ulogin' %}>Hr Login</a></li>
+      <li><a href={% url 'user_login' %}>Employee Login</a></li>
+    </ul>
+
+    
+    <div style="padding:20px;margin-top:30px;background-color: darkgrey;height:1500px;">
+        {% block content %}
+        
+	    {% endblock %}
+    </div>
+
+</body>
+</html>
