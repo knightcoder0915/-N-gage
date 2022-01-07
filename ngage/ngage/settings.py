@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'employee',
     'embed_video',
     'hrhome',
+    'chat_room',
+    #'channels'
+ 
 ]
 
 MIDDLEWARE = [
@@ -73,6 +76,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ngage.wsgi.application'
+
+
+#ASGI_APPLICATION = 'ngage.asgi.application'
 
 
 # Database
@@ -137,4 +143,14 @@ EMAIL_HOST_USER = "kewltanvibroski@gmail.com"
 EMAIL_HOST_PASSWORD = "tanvi200"
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+
+
+CHANNEL_LAYERS={
+    "default":{
+        "BACKEND":"channels.layers.InMemoryChannelLayer"
+    }
+}
+
+ASGI_APPLICATION = "ngage.routing.application"
 

@@ -55,21 +55,28 @@ input {
 		{% csrf_token %}
 	<div >
 		<label for="fname">Name:</label><br>
-		<input name="name" type="text" class="form-control" id="fname" placeholder="Your name">
+		<input name="name" type="text" class="form-control" id="fname" placeholder="Your name" required>
 		<br><br>
 		<label for="email1">Email address:</label><br>
-		<input name="email" type="email" class="form-control" id="email1" placeholder="name@example.com">
+		<input name="email" type="email" class="form-control" id="email1" placeholder="name@example.com" required>
 	    <br><br>
 		<label for="subject">Subject:</label><br>
-		<textarea name="subject" class="form-control" id="subject" placeholder="Please Enter your Query"></textarea>
+		<textarea name="subject" class="form-control" id="subject" placeholder="Please Enter your Query" required></textarea>
 		<br><br>
-		<input type="submit" class="btn" value="Submit">
+		<input type="submit" class="btn" value="Submit" onclick="myFunction()">
 	  </div>
 	</form>
 </div>
 
 <script>
-    alert('{{ message }}');
+function myFunction( ) //function shows message after submitting information
+{
+   
+	alert('{{ message }}');
+  }
+
+    
+
 </script>
 
 

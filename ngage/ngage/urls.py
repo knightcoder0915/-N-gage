@@ -25,6 +25,7 @@ urlpatterns = [
     path("cevent/",cevent,name="cevent"),
     path("devent",devent,name = "devent"),
     path("events/",events,name = "events"),
+    path("chat/",include('chat_room.urls'))
 
 
 ]

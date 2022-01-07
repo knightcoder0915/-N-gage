@@ -1,4 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
+
+from channels.layers import get_channel_layer
+import json
 from .models import tutorial
 from auapp.models import EventsModel  
 import requests
@@ -34,6 +37,17 @@ def events(request):
     data = EventsModel.objects.all()
     return render(request,'events.html',{'data':data})
 
+from asgiref.sync import async_to_sync
+def test(request):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        "notification_broadcast",
+        {
+            'type': 'send_notification',
+            'message': json.dumps("Notification")
+        }
+    )
+    return HttpResponse("Done")
 
 # Create your views here.
 

@@ -1,0 +1,34 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Ngage:Chat Room Screen{% endblock %}
+<meta charset="UTF-8">
+{% block content %}
+<br><br>
+<div style="height:350px;width:100%;overflow-y:scroll" id="div_data">
+
+</div>
+<div>
+    <input type="text" name="message" id="message" placeholder="Message" style="padding:10px;width:100%">
+    <input type="button" value="Send Message" id="send_message" style="background:dodgerblue;color:#fff;padding:10px;border:0px;width:100%">
+ 
+<script>
+    var roomName='{{ room_name }}';
+    var personname='{{ person_name }}';
+    var chatSocket=new WebSocket('ws://'+window.location.host+'/ws/chat/'+roomName+'/'+personname+'/');
+    chatSocket.onmessage=function(e){
+        console.log(e)
+    }
+    chatSocket.onclose=function(e){
+        console.log(e)
+    }
+
+    document.querySelector("#send_message").onclick=function(e){
+        var message=document.querySelector("#message").value;
+        chatSocket.send(JSON.stringify({'message':message}))
+        document.querySelector("#message").value=''
+    }
+
+</script>
+</div>
+
+{% endblock %}

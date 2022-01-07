@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block title %}Ngage:Chat Room{% endblock %}
+{% block content %}
+<br><br>
+<input type="text" name="room_name" id="room_name" placeholder="Room Name"><br><br>
+<textarea id="person_name" name="person_name" disabled>{{ user.first_name }}{{ user.last_name }}</textarea><br>
+<input type="button" name="button" value="Click to Start Chat" id="submit">
+<script>
+    document.querySelector("#submit").onclick=function(e){
+        var roomname=document.querySelector("#room_name").value;
+        var personname=document.querySelector("#person_name").value;
+        window.location.pathname='/chat/room/'+roomname+'/'+personname;
+    }
+</script>
+{% endblock %}
