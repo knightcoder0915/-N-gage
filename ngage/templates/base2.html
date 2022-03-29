@@ -95,14 +95,14 @@ li a:hover:not(.active) {
 
     <ul>
 
-        <li><a class="active" href="#home">"N"gage<br>A Nomura Fitness Community</a></li>
+        <li><a class="active" href="#home">"N"gage<br>A Fitness Community</a></li>
       
       {% if user.is_authenticated %}
       <li><a href="{% url 'index' %}" >Workout &<br>Recipes</a></li>
       <li><a href="{% url 'events' %}">Competition/<br>Events</a></li>
-      <li><a href="#">Chat-Room<br><br></a></li>
+      <!-- <li><a href="#">Chat-Room<br><br></a></li> -->
       <li style="float:right"><a href="{% url 'user_logout' %}">Logout<br><br></a></li>
-      <li style="float:right"><a href="#profile">Profile<br><br></a></li>
+      <li style="float:right"><a href="{% url 'recommendation' %}">BMI Calculator<br><br></a></li>
       
         
 	  {% else %}

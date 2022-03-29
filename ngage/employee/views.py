@@ -11,6 +11,8 @@ def index(request):
         return render(request,'index.html')
     else:
         return redirect("user_login")
+
+
     
 
 def hiit(request):
@@ -31,6 +33,20 @@ def video(request,pk):
 	}
     return  render(request, 'video.html', context)
 
+def recommendation(request):
+	if request.method == "POST":
+		ht = float(request.POST.get("height"))
+		wt = float(request.POST.get("weight"))
+		bmi = (wt) / (ht * ht)
+		bmi = round(bmi,2)
+		if bmi < 18  :
+			return render(request,"recommendation.html",{"msg": "Your BMI is " + str(bmi) + " .\n   We recommend you Yoga. You can check our playlists."})
+		elif bmi > 18 and bmi <= 22:
+			return render(request,"recommendation.html",{"msg": "Your BMI is " + str(bmi) + ".\n We recommend you HIIT Workouts. You can check our playlists."})
+		else:
+			return render(request,"recommendation.html",{"msg":"Your BMI is " + str(bmi) + ".\n We recommend you Cardio Training. You can check our playlists."})
+	else:
+		return render(request,'recommendation.html')
 
 
 def events(request):

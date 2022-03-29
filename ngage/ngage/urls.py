@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path,include
 from home.views import home
 from hrhome.views import hrhome
-from employee.views import index,hiit,yoga,events
+from employee.views import index,hiit,yoga,events,recommendation
 from auapp.views import user_signup,user_login,user_logout,user_np,ulogin,ulogout,ucreate,delete,cevent,devent
 
 urlpatterns = [
@@ -25,7 +25,7 @@ urlpatterns = [
     path("cevent/",cevent,name="cevent"),
     path("devent",devent,name = "devent"),
     path("events/",events,name = "events"),
-    path("chat/",include('chat_room.urls'))
+    path("recommendation/",recommendation,name="recommendation"),
 
 
 ]

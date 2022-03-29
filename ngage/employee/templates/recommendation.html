@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+
+{% block title %}
+Recommendation Page
+{% endblock %}
+
+{% block content %}
+<style>
+
+.calc {
+text-align : center;
+}
+
+</style>
+<br><br>
+<h1> BMI Calculator </h1>
+
+<div class = "calc">
+<form method="POST">
+{% csrf_token %}
+
+<input type="number"  class="bmi"  name="height" min="0" placeholder="Enter Height(In metres)"  step=".01" required >
+<br><br>
+<input type="number" name="weight"  min = "0" placeholder="Enter Weight(In Kg)" step=".01"  required class="bmi">
+<br><br>
+
+<input type="submit" value="Calculate BMI" class="bmi">
+</form>
+
+</div>
+{{ msg }}
+
+{% if "Yoga" in msg %}
+<a  href="{% url 'yoga' %}"><button>Yoga</button></a>
+{% endif %}
+
+{% if "HIIT" in msg %}
+<a  href="{% url 'hiit' %}"><button>HIIT</button></a>
+{% endif %}
+
+{% endblock %}
